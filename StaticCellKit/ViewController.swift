@@ -10,7 +10,7 @@ import UIKit
 
 class ViewController: UIViewController {
 
-    private let tableView = UITableView(frame: .zero, style: .Grouped)
+    fileprivate let tableView = UITableView(frame: .zero, style: .grouped)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,21 +18,22 @@ class ViewController: UIViewController {
         tableView.frame         = view.bounds
         tableView.dataSource    = self
         tableView.delegate      = self
+        
     }
 
 }
 
 extension ViewController: UITableViewDataSource{
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 10
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell: CustomTableViewCell = tableView.dequeueStaticCell(indexPath)
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell: CustomTableViewCell = tableView.sck.dequeueStaticCell(indexPath)
         cell.textLabel?.text = "\(indexPath.section) section \(indexPath.row) row"
         if indexPath.row == 1 {
-            cell.contentView.backgroundColor = UIColor.lightGrayColor()
+            cell.contentView.backgroundColor = UIColor.lightGray
         }
         return cell
     }
@@ -41,7 +42,7 @@ extension ViewController: UITableViewDataSource{
 
 extension ViewController: UITableViewDelegate {
     
-    func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return .min
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return .leastNormalMagnitude
     }
 }

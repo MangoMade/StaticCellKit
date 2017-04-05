@@ -14,6 +14,8 @@
 		DB32C4661DD4215800B27E52 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB32C4641DD4215800B27E52 /* LaunchScreen.storyboard */; };
 		DB32C46F1DD4221C00B27E52 /* UITableView+StaticCellKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB32C46E1DD4221C00B27E52 /* UITableView+StaticCellKit.swift */; };
 		DB32C4711DD4289600B27E52 /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB32C4701DD4289600B27E52 /* CustomTableViewCell.swift */; };
+		DB76759A1E9532BB0024DE8C /* Namespace.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7675991E9532BB0024DE8C /* Namespace.swift */; };
+		DB8E41CE1E94D64800FE83D4 /* WeakReferenceWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB8E41CD1E94D64800FE83D4 /* WeakReferenceWrapper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +28,8 @@
 		DB32C4671DD4215800B27E52 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DB32C46E1DD4221C00B27E52 /* UITableView+StaticCellKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITableView+StaticCellKit.swift"; sourceTree = "<group>"; };
 		DB32C4701DD4289600B27E52 /* CustomTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
+		DB7675991E9532BB0024DE8C /* Namespace.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Namespace.swift; sourceTree = "<group>"; };
+		DB8E41CD1E94D64800FE83D4 /* WeakReferenceWrapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeakReferenceWrapper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +78,8 @@
 			isa = PBXGroup;
 			children = (
 				DB32C46E1DD4221C00B27E52 /* UITableView+StaticCellKit.swift */,
+				DB8E41CD1E94D64800FE83D4 /* WeakReferenceWrapper.swift */,
+				DB7675991E9532BB0024DE8C /* Namespace.swift */,
 			);
 			path = Source;
 			sourceTree = "<group>";
@@ -105,12 +111,13 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0810;
-				LastUpgradeCheck = 0810;
+				LastUpgradeCheck = 0830;
 				ORGANIZATIONNAME = MangoMade;
 				TargetAttributes = {
 					DB32C4571DD4215800B27E52 = {
 						CreatedOnToolsVersion = 8.1;
 						DevelopmentTeam = SXRTDM2GE2;
+						LastSwiftMigration = 0830;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -152,6 +159,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				DB32C45E1DD4215800B27E52 /* ViewController.swift in Sources */,
+				DB76759A1E9532BB0024DE8C /* Namespace.swift in Sources */,
+				DB8E41CE1E94D64800FE83D4 /* WeakReferenceWrapper.swift in Sources */,
 				DB32C46F1DD4221C00B27E52 /* UITableView+StaticCellKit.swift in Sources */,
 				DB32C4711DD4289600B27E52 /* CustomTableViewCell.swift in Sources */,
 				DB32C45C1DD4215800B27E52 /* AppDelegate.swift in Sources */,
@@ -198,6 +207,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -249,6 +259,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -284,7 +295,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = MangoMade.StaticCellKit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 2.3;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -297,7 +308,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = MangoMade.StaticCellKit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 2.3;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
@@ -320,6 +331,7 @@
 				DB32C46C1DD4215800B27E52 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
