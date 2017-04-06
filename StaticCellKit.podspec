@@ -10,7 +10,7 @@ Pod::Spec.new do |s|
 
 
   s.name         = "StaticCellKit"
-  s.version      = "0.0.1"
+  s.version      = "0.0.2"
   s.summary      = "Create a static table view by code!"
 
   s.description  = <<-DESC

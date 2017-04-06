@@ -1,6 +1,7 @@
 ## About StaticCellKit
 
-Dequeue a static cell of indexPath,  
+Dequeue a static cell of indexPath,
+
 and the cell will never be reused by other indexPath.
      
 ## Why do I use StaticCellKit?
@@ -88,4 +89,4 @@ You can use `StaticTableViewDelegate` to configure cell or header / footer.
 
 ## Cocoapods
 
-	pod 'StaticCellKit', '~> 0.0.1’
+	pod 'StaticCellKit', '~> 0.0.2’
