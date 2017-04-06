@@ -78,3 +78,14 @@ extension ViewController: StaticTableViewDelegate {
 ```
 
 You can use `StaticTableViewDelegate` to configure cell or header / footer.
+
+
+## Requirements
+
+* iOS 8.0
+* XCode 8.0
+* Swift 3.0
+
+## Cocoapods
+
+	pod 'StaticCellKit', '~> 0.0.1’
