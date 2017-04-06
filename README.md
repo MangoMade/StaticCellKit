@@ -32,19 +32,21 @@ As we known, we can create a static table view in StoryBoard.
 ``` Swift
 func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let cell: CustomTableViewCell = tableView.sck.dequeueStaticCell(indexPath)
+    
     return cell
 }
 
 func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
     guard section == 0 else { return nil }
     let header = tableView.sck.dequeueStaticHeaderView(section)
-    
+  
     return header
 }
     
 func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
     guard section == 0 else { return nil }
     let footer = tableView.sck.dequeueStaticFooterView(section)
+    
     return footer
 }
 ```
@@ -62,14 +64,15 @@ extension ViewController: StaticTableViewDelegate {
 	func tableView(_ tableView: UITableView, initStaticCell cell: UITableViewCell, ofIndexPath indexPath: IndexPath) {
 	
 	}
-	
-	func tableView(_ tableView: UITableView, initStaticHeader header: UITableViewHeaderFooterView, ofSection section: Int) {
 
-    }
+	func tableView(_ tableView: UITableView, initStaticHeader header: UITableViewHeaderFooterView, ofSection section: Int) {
+	
+	}
+
+	func tableView(_ tableView: UITableView, initStaticFooter footer: UITableViewHeaderFooterView, ofSection section: Int) {
     
-    func tableView(_ tableView: UITableView, initStaticFooter footer: UITableViewHeaderFooterView, ofSection section: Int) {
-    
-    }
+	}
+   
 }
 
 ```
