@@ -19,6 +19,7 @@ public protocol NamespaceWrappable {
 
 public extension NamespaceWrappable {
     
+    /// sck, aka Static Cell Kit
     var sck: TypeWrapper<Self> {
         return TypeWrapper(self)
     }
@@ -26,7 +27,6 @@ public extension NamespaceWrappable {
     static var sck: TypeWrapper<Self>.Type {
         return TypeWrapper.self
     }
-    
 }
 
 public protocol TypeWrapperProtocol {

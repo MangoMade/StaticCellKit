@@ -1,5 +1,5 @@
 //
-//  UITableView+StaticCellKit.swift
+//  StaticCellKit.swift
 //  StaticCellKit
 //
 //  Created by Mango on 2016/11/10.
@@ -8,8 +8,16 @@
 
 import UIKit
 
-@objc protocol StaticTableViewDelegate {
-    @objc optional func tableView(_ tableView: UITableView, initStaticCell cell: UITableViewCell, ofIndexPath indexPath: NSIndexPath)
+@objc public protocol StaticTableViewDelegate {
+    
+    /// those methods will be invoked only once when static views did init.
+    
+    @objc optional func tableView(_ tableView: UITableView, initStaticCell cell: UITableViewCell, ofIndexPath indexPath: IndexPath)
+    
+    @objc optional func tableView(_ tableView: UITableView, initStaticHeader header: UITableViewHeaderFooterView, ofSection section: Int)
+    
+    @objc optional func tableView(_ tableView: UITableView, initStaticFooter footer: UITableViewHeaderFooterView, ofSection section: Int)
+    
 }
 
 extension UITableView: NamespaceWrappable { }
@@ -19,7 +27,6 @@ private extension TypeWrapper {
     var tableView: T {
         return wrapperObject
     }
-    
 }
 
 public extension TypeWrapper where T: UITableView {
@@ -31,7 +38,7 @@ public extension TypeWrapper where T: UITableView {
      ### Usage:
      
      func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-     let cell: CustomTableViewCell = tableView.dequeueStaticCell(indexPath)
+     let cell: CustomTableViewCell = tableView.sck.dequeueStaticCell(indexPath)
      return cell
      }
      
@@ -45,6 +52,7 @@ public extension TypeWrapper where T: UITableView {
             return cell
         } else {
             let cell = T(style: .default, reuseIdentifier: reuseIdentifier)
+            self.delegate?.tableView?(self.tableView, initStaticCell: cell, ofIndexPath: indexPath)
             return cell
         }
     }
@@ -65,9 +73,36 @@ public extension TypeWrapper where T: UITableView {
             return header
         } else {
             let header = T(reuseIdentifier: reuseIdentifier)
+            if isHeader {
+                self.delegate?.tableView?(self.tableView, initStaticHeader: header, ofSection: section)
+            } else {
+                self.delegate?.tableView?(self.tableView, initStaticFooter: header, ofSection: section)
+            }
             return header
         }
     }
     
+    /// this is a weak delegate
+    
+    public weak var delegate: StaticTableViewDelegate? {
+        return delegateWrapper.instance
+    }
+    
+    public func setDelegate(_ delegate: StaticTableViewDelegate?) {
+        delegateWrapper.instance = delegate
+    }
+    
+    private var delegateWrapper: WeakReferenceWrapper<StaticTableViewDelegate> {
+        get {
+            var wrapper = objc_getAssociatedObject(self.tableView, &delegateWrapperKey) as? WeakReferenceWrapper<StaticTableViewDelegate>
+            if wrapper == nil {
+                wrapper = WeakReferenceWrapper<StaticTableViewDelegate>()
+                objc_setAssociatedObject(self.tableView, &delegateWrapperKey, wrapper, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+            }
+            return wrapper!
+        }
+    }
 }
+
+private var delegateWrapperKey = 0
 
