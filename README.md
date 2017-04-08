@@ -58,21 +58,23 @@ You don't need to call UITableView.registerClass(_:).
 
 ``` Swift
 
-tableView.sck.setDelegate(self)  // `self` maybe is your view controller.
+tableView.sck.delegate = self  
+
+// `self` maybe is your view controller which conforming StaticTableViewDelegate.
 
 extension ViewController: StaticTableViewDelegate {
 
-	func tableView(_ tableView: UITableView, initStaticCell cell: UITableViewCell, ofIndexPath indexPath: IndexPath) {
+   func tableView(_ tableView: UITableView, initStaticCell cell: UITableViewCell, ofIndexPath indexPath: IndexPath) {
 	
-	}
+   }
 
-	func tableView(_ tableView: UITableView, initStaticHeader header: UITableViewHeaderFooterView, ofSection section: Int) {
+   func tableView(_ tableView: UITableView, initStaticHeader header: UITableViewHeaderFooterView, ofSection section: Int) {
 	
-	}
-
-	func tableView(_ tableView: UITableView, initStaticFooter footer: UITableViewHeaderFooterView, ofSection section: Int) {
+   }
+	
+   func tableView(_ tableView: UITableView, initStaticFooter footer: UITableViewHeaderFooterView, ofSection section: Int) {
     
-	}
+   }
    
 }
 
@@ -89,4 +91,4 @@ You can use `StaticTableViewDelegate` to configure cell or header / footer.
 
 ## Cocoapods
 
-	pod 'StaticCellKit', '~> 0.0.2’
+	pod 'StaticCellKit', '~> 0.0.3’

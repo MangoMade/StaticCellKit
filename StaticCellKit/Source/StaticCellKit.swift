@@ -85,22 +85,21 @@ public extension TypeWrapper where T: UITableView {
     /// this is a weak delegate
     
     public weak var delegate: StaticTableViewDelegate? {
-        return delegateWrapper.instance
-    }
-    
-    public func setDelegate(_ delegate: StaticTableViewDelegate?) {
-        delegateWrapper.instance = delegate
+        get {
+            return delegateWrapper.instance
+        }
+        set {
+            delegateWrapper.instance = newValue
+        }
     }
     
     private var delegateWrapper: WeakReferenceWrapper<StaticTableViewDelegate> {
-        get {
-            var wrapper = objc_getAssociatedObject(self.tableView, &delegateWrapperKey) as? WeakReferenceWrapper<StaticTableViewDelegate>
-            if wrapper == nil {
-                wrapper = WeakReferenceWrapper<StaticTableViewDelegate>()
-                objc_setAssociatedObject(self.tableView, &delegateWrapperKey, wrapper, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
-            }
-            return wrapper!
+        var wrapper = objc_getAssociatedObject(self.tableView, &delegateWrapperKey) as? WeakReferenceWrapper<StaticTableViewDelegate>
+        if wrapper == nil {
+            wrapper = WeakReferenceWrapper<StaticTableViewDelegate>()
+            objc_setAssociatedObject(self.tableView, &delegateWrapperKey, wrapper, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
         }
+        return wrapper!
     }
 }
 

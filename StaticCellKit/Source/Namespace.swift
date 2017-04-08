@@ -8,11 +8,11 @@
 
 import Foundation
 
-public protocol NamespaceWrappable {
+public protocol NamespaceWrappable: class {
     
     associatedtype WrapperType
     
-    var sck: WrapperType { get }
+    var sck: WrapperType { get set }
     
     static var sck: WrapperType.Type { get }
 }
@@ -21,7 +21,10 @@ public extension NamespaceWrappable {
     
     /// sck, aka Static Cell Kit
     var sck: TypeWrapper<Self> {
-        return TypeWrapper(self)
+        get {
+            return TypeWrapper(self)
+        }
+        set { } // just for 'tableView.sck.delegate = self'
     }
     
     static var sck: TypeWrapper<Self>.Type {

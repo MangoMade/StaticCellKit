@@ -46,7 +46,8 @@ class ViewController: UIViewController {
         tableView.keyboardDismissMode = .onDrag
         tableView.dataSource    = self
         tableView.delegate      = self
-        tableView.sck.setDelegate(self)
+        tableView.sck.delegate  = self
+        print(tableView.sck.delegate)
     }
 
 }
