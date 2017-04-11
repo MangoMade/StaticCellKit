@@ -60,7 +60,7 @@ You don't need to call UITableView.registerClass(_:).
 
 tableView.sck.delegate = self  
 
-// `self` maybe is your view controller which conforming StaticTableViewDelegate.
+// `self` may be your view controller which conforming StaticTableViewDelegate.
 
 extension ViewController: StaticTableViewDelegate {
 
