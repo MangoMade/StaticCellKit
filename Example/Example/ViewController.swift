@@ -7,9 +7,9 @@
 //
 
 import UIKit
-
+import StaticCellKit
 class ViewController: UIViewController {
-
+    
     fileprivate let tableView = UITableView(frame: .zero, style: .grouped)
     
     fileprivate let cellSwitch = UISwitch()
@@ -47,9 +47,7 @@ class ViewController: UIViewController {
         tableView.dataSource    = self
         tableView.delegate      = self
         tableView.sck.delegate  = self
-        print(tableView.sck.delegate)
     }
-
 }
 
 
@@ -81,17 +79,17 @@ extension ViewController: StaticTableViewDelegate {
             let height = Scale.height(height: 30)
             let width = Scale.width(width: 200)
             textField.frame = CGRect(x: Screen.width - width - Const.paddingRight,
-                                      y: Const.paddingTop,
-                                      width: width,
-                                      height: height)
+                                     y: Const.paddingTop,
+                                     width: width,
+                                     height: height)
         case 3:
             cell.contentView.addSubview(slider)
             let height = Scale.height(height: 30)
             let width = Scale.width(width: 200)
             slider.frame = CGRect(x: Screen.width - width - Const.paddingRight,
-                                     y: Const.paddingTop,
-                                     width: width,
-                                     height: height)
+                                  y: Const.paddingTop,
+                                  width: width,
+                                  height: height)
         default:
             break
         }
@@ -136,7 +134,7 @@ extension ViewController: UITableViewDataSource {
         cell.textLabel?.text = "\(indexPath.section) section \(indexPath.row) row"
         return cell
     }
-
+    
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         guard section == 0 else { return nil }
         let header = tableView.sck.dequeueStaticHeaderView(section)
@@ -164,5 +162,4 @@ extension ViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 50
     }
-    
 }

@@ -27,7 +27,7 @@ Pod::Spec.new do |s|
 
   s.source       = { :git => "https://github.com/MangoMade/StaticCellKit.git", :tag => "#{s.version}" }
 
-  s.source_files  = "StaticCellKit/Source"
+  s.source_files  = "Source/*.swift"
 
   s.requires_arc = true
 
