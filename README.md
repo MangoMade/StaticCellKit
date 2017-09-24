@@ -3,6 +3,19 @@
 Dequeue a static cell of indexPath,
 
 and the cell will never be reused by other indexPath.
+
+## Requirements
+
+* iOS 8.0
+* XCode 8.0
+* Swift 3.0
+
+## Cocoapods
+
+	// Swift 3.2
+	pod 'StaticCellKit', '~> 0.0.3’
+	// Swift 4.0
+	pod 'StaticCellKit', '~> 0.0.4’
      
 ## Why do I use StaticCellKit?
 
@@ -83,12 +96,3 @@ extension ViewController: StaticTableViewDelegate {
 You can use `StaticTableViewDelegate` to configure cell or header / footer.
 
 
-## Requirements
-
-* iOS 8.0
-* XCode 8.0
-* Swift 3.0
-
-## Cocoapods
-
-	pod 'StaticCellKit', '~> 0.0.3’
